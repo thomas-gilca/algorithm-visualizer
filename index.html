@@ -2,12 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>algorithm-visualizer</title>
+    <title>Algorithm Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
   </head>
   <body>
-    <div id="app"></div>
+    <div class="page">
+      <header class="top">
+        <div>
+          <p class="eyebrow">Step-by-step algorithms</p>
+          <h1>Algorithm Visualizer</h1>
+        </div>
+      </header>
+      <main id="app"></main>
+      <p class="note">Keyboard: <code>Space</code> plays or pauses, <code>←</code> and <code>→</code> step.</p>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
