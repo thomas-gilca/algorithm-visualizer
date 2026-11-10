@@ -3,13 +3,14 @@ import { ALGORITHMS } from '../algorithms/registry.js';
 import { escapeHtml } from '../utils/html.js';
 import { createBarsRenderer } from '../renderers/bars.js';
 import { mountArrayInput } from '../inputs/arrayInput.js';
-
+import { mountSearchInput } from '../inputs/searchInput.js';
 // Fiecare algoritm spune în registru ce renderer și ce fel de date de intrare folosește.
 const RENDERERS = {
   bars: createBarsRenderer,
 };
 const INPUTS = {
   array: mountArrayInput,
+  search: mountSearchInput,
 };
 
 const ICON_PLAY = 'M8 5l11 7-11 7z';
