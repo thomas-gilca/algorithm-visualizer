@@ -413,3 +413,15 @@ ol.code li::before { margin-right: 0; }
 .nav a:hover { color: var(--ink); border-color: var(--line); }
 .nav a[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
 .nav a:focus-visible, .brand:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+::view-transition-old(root),
+   ::view-transition-new(root) {
+     animation: none;
+     mix-blend-mode: normal;
+   }
+   ::view-transition-new(root) {
+     -webkit-mask-image: var(--ink-mask);
+     mask-image: var(--ink-mask);
+     -webkit-mask-repeat: no-repeat;
+     mask-repeat: no-repeat;
+   }
