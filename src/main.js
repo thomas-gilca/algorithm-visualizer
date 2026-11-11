@@ -2,6 +2,7 @@ import './styles/main.css';
 import { ALGORITHMS, CATEGORIES, findAlgorithm, algorithmsIn } from './algorithms/registry.js';
 import { mountVisualizer } from './core/visualizer.js';
 import { initTheme } from './core/theme.js';
+import { mountCompare } from './core/Compare.js';
 
 const app = document.getElementById('app');
 const nav = document.getElementById('nav');
@@ -14,19 +15,25 @@ function renderNav(activeCategory) {
       const current = c.id === activeCategory ? ' aria-current="page"' : '';
       return `<a href="#/${c.id}/${first.id}"${current}>${c.name}</a>`;
     })
-    .join('');
+    .join('') +
+    `<a href="#/compare"${activeCategory === 'compare' ? ' aria-current="page"' : ''}>Compare</a>`;
 }
 
-// '#/sorting/quick' -> ['#', 'sorting', 'quick']
 function route() {
-  const algorithmId = location.hash.split('/')[2];
-  const entry = findAlgorithm(algorithmId);
-  if (!entry) {
-    const first = ALGORITHMS[0];
-    location.hash = `#/${first.category}/${first.id}`; // declanșează din nou route()
+  const parts = location.hash.split('/');
+  unmount?.();
+
+  if (parts[1] === 'compare') {
+    unmount = mountCompare(app, parts[2], parts[3], parts[4]);
+    renderNav('compare');
     return;
   }
-  unmount?.();
+
+  const entry = findAlgorithm(parts[2]);
+  if (!entry) {
+    location.hash = '#/sorting/bubble';
+    return;
+  }
   unmount = mountVisualizer(app, entry);
   renderNav(entry.category);
 }
