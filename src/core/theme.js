@@ -130,7 +130,7 @@ function inkTransition(button, switchTheme) {
         maskPosition: [`${x}px ${y}px`, `${x - end / 2}px ${y - end / 2}px`],
       },
       {
-        duration: 1100,
+        duration: 2000,
         easing: 'cubic-bezier(0.6, 0, 0.25, 1)', // pornește încet, curge, apoi se așază
         pseudoElement: '::view-transition-new(root)',
       },
